@@ -1,12 +1,9 @@
-import Button from './components/Button';
-import './App.css';
+import '~/App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <Button/>
-    </div>
-  );
+    return (
+        <div className="App"></div>
+    );
 }
 
 export default App;
