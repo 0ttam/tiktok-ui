@@ -2,7 +2,13 @@ import '~/App.css';
 
 function App() {
     return (
-        <div className="App"></div>
+        <div className="App">
+            <h1>
+                create
+                react
+                app
+            </h1>
+        </div>
     );
 }
 
