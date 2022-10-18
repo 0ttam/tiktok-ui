@@ -5,6 +5,9 @@
 :root{
     --primary: #fe2c55;
 }
+* {
+    box-sizing: border-box;
+}
 
 html {
     font-style: 62.5%;
