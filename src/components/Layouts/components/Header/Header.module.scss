@@ -1,12 +1,81 @@
 .wrapper {
+    --search-border-radius: 92px;
+    --search-height: 46px;
+    --search-top-spacer: 9px;
+    --search-button-with: 52px;
+
     width: 100%;
     height: var(--default-layout-header-height, 60px);
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
-    display: flex; //can giua
+    display: flex; //cac component nam ngang hang
     justify-content: center; //can giua
+    
 }
 .inner {
     height: 100%;
     width: var(--default-layout-width-content, 1150px);
-    background-color: #ccc;
+    display: flex; //cac component nam ngang hang
+    align-items: center; // can giua theo chieu cao
+    justify-content: space-between;// dan cac components nam o giua va 2 canh
+}
+
+//Search
+.search {
+    width: 361px;
+    height: var(--search-height);
+    background-color: #f1f1f2;
+    border-radius: var(--search-border-radius);
+    padding-left: 16px;
+    display: flex;
+    position: relative; // dung de tao quan he cho sudo after
+    border: 1.5px solid transparent;
+    input {
+        font-size: 1.2rem;
+        background-color: transparent; // trong suot
+        height:100%; // de focus vao input
+        width: 222px;
+        color: var(--black);
+        flex: 1; // tran ra
+        caret-color: var(--primary); // dau nhay mau
+    }
+    input:not(:placeholder-shown) ~ .search-btn { // xu ly khi viet noi dung
+        // search btn se doi mau
+        color: #161823bf;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: calc(var(--search-height) - var(--search-top-spacer) * 2 );
+        background-color: #16182357;
+        top: var(--search-top-spacer);
+        right: var(--search-button-with);
+
+    }
+    &:focus-within {
+        border-color: #c5c6c9; // border khi focus
+    }
+}
+.clear, .loading {
+    position: absolute;
+    right: calc(var(--search-button-with) + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    color: #c5c6c9;
+}
+.search-btn {
+    width: var(--search-button-with);
+    height: 100%;
+    border-radius: 0 var(--search-border-radius) var(--search-border-radius) 0;
+    font-size: 1.5rem;
+    color: #16182357;
+    &:hover {
+        cursor: pointer;
+        background-color: #eaeaeb;
+    }
+    
+}
+//Actions       
+.actions {
+
 }
