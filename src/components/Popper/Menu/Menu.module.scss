@@ -1,0 +1,24 @@
+// Menu Wrapper
+.menu-list {
+    font-size: 1rem;
+    width: 234px;
+    // Menu Items
+   .menu-item {
+    margin-left: 0;
+    font-size: 1rem;
+   } 
+}
+// Menu Wrapper
+.menu-popper {
+    padding-bottom: 8px; // bottom cho tipy more button
+}
+// Menu item
+.menu-item {
+    width: 100%; // hover back ground dai ra
+    justify-content: flex-start; // text ve dau
+    border-radius: 0px;
+    padding: 11px 16px;
+    &:hover {
+        background-color: rgba(22,24,35,0.03);
+    }
+}
