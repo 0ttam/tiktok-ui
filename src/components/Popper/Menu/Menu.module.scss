@@ -8,17 +8,37 @@
     font-size: 1rem;
    } 
 }
-// Menu Wrapper
 .menu-popper {
     padding-bottom: 8px; // bottom cho tipy more button
 }
+
 // Menu item
 .menu-item {
     width: 100%; // hover back ground dai ra
     justify-content: flex-start; // text ve dau
     border-radius: 0px;
     padding: 11px 16px;
+    line-height: 1.1rem; // fix chieu cao cua the a
     &:hover {
         background-color: rgba(22,24,35,0.03);
     }
+}
+
+// Header
+.header {
+    position: relative;
+    height: 50px;
+    margin-top: -8px;
+}
+.back-btn {
+    width: 50px;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+}
+.header-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
