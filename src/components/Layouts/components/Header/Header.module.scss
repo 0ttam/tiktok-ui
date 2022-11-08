@@ -85,6 +85,11 @@
     color: #c5c6c9;
     background-color: rgba(22,24,35,0.03);
 }
+//Actions       
+.actions {
+    display: flex;
+    align-items: center;
+}
 
 .more-btn {
     font-size: 1.2rem;
@@ -97,9 +102,21 @@
 .menu-items {
     width: 220px;
 }
-//Actions       
-.actions {
 
+.action-btn {
+    color: #161823;
+    font-size: 1.4rem;
+    background-color: transparent;
+    padding: 4px 14px;
+    cursor: pointer;
+}
+.user-avatar {
+        width: 32px; 
+        height: 32px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-left:14px;
+        cursor: pointer;
 }
 // custome button
 .custom-login {

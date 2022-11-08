@@ -46,6 +46,7 @@ function Menu({
         <Tippy
             delay={[null, 500]}
             interactive
+            offset={[12, 8]}
             placement="bottom-end"
             render={(attrs) => (
                 <div
