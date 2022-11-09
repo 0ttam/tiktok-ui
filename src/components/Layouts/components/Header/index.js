@@ -13,8 +13,6 @@ import {
     faLanguage,
     faCircleQuestion,
     faKeyboard,
-    faCloudUpload,
-    faMessage,
     faSignOut,
     faGear,
     faUser,
@@ -27,7 +25,8 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
-import { faCircle } from '@fortawesome/free-regular-svg-icons';
+import { InboxIcon, MessageIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -163,8 +162,16 @@ function Header() {
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
+                            <Button
+                                outline
+                                className={cx(
+                                    'custom-upload',
+                                )}
+                            >
+                                Upload
+                            </Button>
                             <Tippy
-                                content="Upload"
+                                content="Message"
                                 delay={(0, 200)}
                                 placement="bottom"
                             >
@@ -173,18 +180,22 @@ function Header() {
                                         'action-btn',
                                     )}
                                 >
-                                    <FontAwesomeIcon
-                                        icon={faCloudUpload}
-                                    />
+                                    <MessageIcon />
                                 </button>
                             </Tippy>
-                            <button
-                                className={cx('action-btn')}
+                            <Tippy
+                                content="Inbox"
+                                delay={(0, 200)}
+                                placement="bottom"
                             >
-                                <FontAwesomeIcon
-                                    icon={faMessage}
-                                />
-                            </button>
+                                <button
+                                    className={cx(
+                                        'action-btn',
+                                    )}
+                                >
+                                    <InboxIcon />
+                                </button>
+                            </Tippy>
                         </>
                     ) : (
                         <>
@@ -210,11 +221,12 @@ function Header() {
                         onChange={handleMenuChange}
                     >
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx(
                                     'user-avatar',
                                 )}
                                 src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/5057753ddac5a366de416504773394d6~c5_720x720.jpeg?x-expires=1667995200&x-signature=uigqpsvtZNaTibXydCWRcxyUF3A%3D"
+                                fallback="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
                                 alt="Nguyen Van A"
                             />
                         ) : (
