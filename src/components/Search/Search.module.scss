@@ -1,0 +1,65 @@
+//Search
+.search {
+    height: var(--search-height);
+    background-color: #f1f1f2;
+    border-radius: var(--search-border-radius);
+    padding-left: 16px;
+    display: flex;
+    position: relative; // dung de tao quan he cho sudo after
+    border: 1.5px solid transparent;
+    input {
+        font-size: 1.2rem;
+        background-color: transparent; // trong suot
+        height:100%; // de focus vao input
+        width: 222px;
+        color: var(--black);
+        flex: 1; // tran ra
+        caret-color: var(--primary); // dau nhay mau
+    }
+    input:not(:placeholder-shown) ~ .search-btn { // xu ly khi viet noi dung
+        // search btn se doi mau
+        color: #161823bf;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: calc(var(--search-height) - var(--search-top-spacer) * 2 );
+        background-color: #16182357;
+        top: var(--search-top-spacer);
+        right: var(--search-button-with);
+
+    }
+    &:focus-within {
+        border-color: #c5c6c9; // border khi focus
+    }
+}
+.search, .search-result {
+    width: 361px;
+}
+.search-btn {
+    width: var(--search-button-with);
+    height: 100%;
+    border-radius: 0 var(--search-border-radius) var(--search-border-radius) 0;
+    font-size: 1.5rem;
+    color: #16182357;
+    &:hover {
+        cursor: pointer;
+        background-color: #eaeaeb;
+    }
+    
+}
+.search-title {
+    color: rgba(22,24,35,0.5);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 5px 12px;
+}   
+.clear, .loading {
+    position: absolute;
+    right: calc(var(--search-button-with) + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    color: #c5c6c9;
+    background-color: rgba(22,24,35,0.03);
+}
