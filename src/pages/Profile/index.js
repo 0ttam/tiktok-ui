@@ -1,4 +1,4 @@
 function Profile() {
-    return <h2>Profile Page</h2>;
+    return <h4>Profile Page</h4>;
 }
 export default Profile;

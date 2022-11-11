@@ -34,6 +34,28 @@
         border-color: #c5c6c9; // border khi focus
     }
 }
+  
+.clear, .loading {
+    position: absolute;
+    right: calc(var(--search-button-with) + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    color: #c5c6c9;
+    background-color: rgba(22,24,35,0.03);
+    font-size: 1rem;
+}
+.loading {
+     animation: spinner .5s linear infinite;
+}
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+    to {
+        transform:translateY(-50%)  rotate(360deg);
+    }
+}
+
 .search, .search-result {
     width: 361px;
 }
@@ -55,11 +77,3 @@
     font-weight: 600;
     padding: 5px 12px;
 }   
-.clear, .loading {
-    position: absolute;
-    right: calc(var(--search-button-with) + 12px);
-    top: 50%;
-    transform: translateY(-50%);
-    color: #c5c6c9;
-    background-color: rgba(22,24,35,0.03);
-}

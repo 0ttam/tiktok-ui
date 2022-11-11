@@ -10,8 +10,12 @@ import Search from '~/pages/Search';
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/following', component: Following },
-    { path: '/profile', component: Profile },
-    { path: '/upload', component: Upload, layout: HeaderOnly },
+    { path: '/@:nickname', component: Profile }, // có ký tự @ và kí tự ko cố định
+    {
+        path: '/upload',
+        component: Upload,
+        layout: HeaderOnly,
+    },
     { path: '/search', component: Search, layout: null },
 ];
 

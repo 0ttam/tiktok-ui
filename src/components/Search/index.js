@@ -19,14 +19,31 @@ function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [searchValue, setSearchValue] = useState('');
     const [showResults, setShowResults] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const inputRef = useRef();
 
     useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([1, 2, 0]);
-        }, 3000);
-    }, []);
+        if (!searchValue.trim()) {
+            setSearchResult([]); // khi clear chỉ còn mảng rỗng
+            // nếu là chuỗi rỗng sẽ lọt vào đây
+            return;
+        }
+        setLoading(true);
+        fetch(
+            `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
+                searchValue,
+            )}&type=less`,
+        ) // mã hóa các kí tự ko hợp lệ (?,&...) thành hợp lệ trên URL
+            .then((res) => res.json())
+            .then((res) => {
+                setSearchResult(res.data);
+                setLoading(false);
+            })
+            .catch((err) => {
+                setLoading(false);
+            });
+    }, [searchValue]);
     // handle
     const handleClear = () => {
         setSearchValue(''); // set ô tìm kiếm thành chuỗi rỗng
@@ -50,10 +67,12 @@ function Search() {
                         <h4 className={cx('search-title')}>
                             Account
                         </h4>
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
+                        {searchResult.map((result) => (
+                            <AccountItem
+                                key={result.id}
+                                data={result}
+                            />
+                        ))}
                     </PopperWrapper>
                 </div>
             )}
@@ -72,7 +91,7 @@ function Search() {
                         setSearchValue(e.target.value)
                     }
                 />
-                {!!searchValue && (
+                {!!searchValue && !loading && (
                     <button
                         className={cx('clear')}
                         onClick={handleClear}
@@ -83,10 +102,12 @@ function Search() {
                     </button>
                 )}
 
-                {/* <FontAwesomeIcon
-                    className={cx('loading')}
-                    icon={faSpinner}
-                /> */}
+                {loading && (
+                    <FontAwesomeIcon
+                        className={cx('loading')}
+                        icon={faSpinner}
+                    />
+                )}
 
                 <button className={cx('search-btn')}>
                     <SearchIcon />
