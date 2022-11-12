@@ -12,6 +12,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import styles from './Search.module.scss';
 import { SearchIcon } from '../Icons';
+import { useDebounce } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
@@ -21,6 +22,7 @@ function Search() {
     const [showResults, setShowResults] = useState(true);
     const [loading, setLoading] = useState(false);
 
+    const debounced = useDebounce(searchValue, 600);
     const inputRef = useRef();
 
     useEffect(() => {
@@ -43,7 +45,7 @@ function Search() {
             .catch((err) => {
                 setLoading(false);
             });
-    }, [searchValue]);
+    }, [debounced]);
     // handle
     const handleClear = () => {
         setSearchValue(''); // set ô tìm kiếm thành chuỗi rỗng
