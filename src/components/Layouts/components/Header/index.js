@@ -13,6 +13,7 @@ import {
     faUser,
     faCoins,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 import images from '~/assets/images';
 import Button from '~/components/Button';
@@ -114,8 +115,10 @@ function Header() {
                                     'custom-upload',
                                 )}
                             >
-                                <UploadIcon />
-                                Upload
+                                <Link to={'/Upload'}>
+                                    <UploadIcon />
+                                    Upload
+                                </Link>
                             </Button>
                             <Tippy
                                 content="Message"

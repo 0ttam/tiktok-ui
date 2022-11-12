@@ -13,6 +13,7 @@ import AccountItem from '~/components/AccountItem';
 import styles from './Search.module.scss';
 import { SearchIcon } from '../Icons';
 import { useDebounce } from '~/hooks';
+import * as searchService from '~/apiServices/searchServices';
 
 const cx = classNames.bind(styles);
 
@@ -31,21 +32,18 @@ function Search() {
             // nếu là chuỗi rỗng sẽ lọt vào đây
             return;
         }
-        setLoading(true);
-        fetch(
-            `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-                searchValue,
-            )}&type=less`,
-        ) // mã hóa các kí tự ko hợp lệ (?,&...) thành hợp lệ trên URL
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res.data);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setLoading(false);
-            });
+
+        const fetchApi = async () => {
+            setLoading(true);
+            const result = await searchService.search(
+                debounced,
+            );
+            setSearchResult(result);
+            setLoading(false);
+        };
+        fetchApi();
     }, [debounced]);
+
     // handle
     const handleClear = () => {
         setSearchValue(''); // set ô tìm kiếm thành chuỗi rỗng
