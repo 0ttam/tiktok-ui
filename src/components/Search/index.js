@@ -28,7 +28,8 @@ function Search() {
 
     useEffect(() => {
         if (!searchValue.trim()) {
-            setSearchResult([]); // khi clear chỉ còn mảng rỗng
+            // khi clear chỉ còn mảng rỗng
+            setSearchResult([]);
             // nếu là chuỗi rỗng sẽ lọt vào đây
             return;
         }
@@ -51,6 +52,12 @@ function Search() {
     };
     const handleOutside = () => {
         setShowResults(false);
+    };
+    const handleSearch = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue);
+        }
     };
 
     return (
@@ -87,9 +94,7 @@ function Search() {
                     value={searchValue}
                     placeholder="Search accounts and videos"
                     spellCheck={false}
-                    onChange={(e) =>
-                        setSearchValue(e.target.value)
-                    }
+                    onChange={(e) => handleSearch(e)}
                 />
                 {!!searchValue && !loading && (
                     <button
@@ -109,7 +114,12 @@ function Search() {
                     />
                 )}
 
-                <button className={cx('search-btn')}>
+                <button
+                    className={cx('search-btn')}
+                    onMouseDown={(e) => {
+                        e.preventDefault();
+                    }}
+                >
                     <SearchIcon />
                 </button>
             </div>

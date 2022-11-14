@@ -5,18 +5,23 @@ import Following from '~/pages/Following';
 import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
+import routesConfig from '~/config/routes';
 
 // publicRoutes
 const publicRoutes = [
-    { path: '/', component: Home },
-    { path: '/following', component: Following },
-    { path: '/@:nickname', component: Profile }, // có ký tự @ và kí tự ko cố định
+    { path: routesConfig.home, component: Home },
+    { path: routesConfig.following, component: Following },
+    { path: routesConfig.profile, component: Profile }, // có ký tự @ và kí tự ko cố định
     {
-        path: '/upload',
+        path: routesConfig.upload,
         component: Upload,
         layout: HeaderOnly,
     },
-    { path: '/search', component: Search, layout: null },
+    {
+        path: routesConfig.upload,
+        component: Search,
+        layout: null,
+    },
 ];
 
 // privateRoutes

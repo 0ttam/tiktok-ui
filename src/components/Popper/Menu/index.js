@@ -14,6 +14,7 @@ function Menu({
     children,
     items = [],
     onChange = defaultFn,
+    hideOnClick = false,
 }) {
     const [history, setHistory] = useState([
         { data: items },
@@ -46,6 +47,7 @@ function Menu({
         <Tippy
             delay={[null, 500]}
             interactive
+            hideOnClick={false}
             offset={[12, 8]}
             placement="bottom-end"
             render={(attrs) => (
