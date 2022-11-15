@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import {
     faCircleXmark,
     faSpinner,
-    faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
 import TippyHeadless from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -61,69 +60,79 @@ function Search() {
     };
 
     return (
-        <TippyHeadless
-            interactive
-            visible={showResults && searchResult.length > 0}
-            render={(attrs) => (
-                <div
-                    className={cx('search-result')}
-                    tabIndex="-1"
-                    {...attrs}
-                >
-                    <PopperWrapper>
-                        <h4 className={cx('search-title')}>
-                            Account
-                        </h4>
-                        {searchResult.map((result) => (
-                            <AccountItem
-                                key={result.id}
-                                data={result}
-                            />
-                        ))}
-                    </PopperWrapper>
-                </div>
-            )}
-            onClickOutside={handleOutside} // bấm ra ngoài khu vực search
-        >
-            <div className={cx('search')}>
-                <input
-                    onFocus={() => {
-                        setShowResults(true);
-                    }} // bật tippy lên
-                    ref={inputRef} // dùng để blur
-                    value={searchValue}
-                    placeholder="Search accounts and videos"
-                    spellCheck={false}
-                    onChange={(e) => handleSearch(e)}
-                />
-                {!!searchValue && !loading && (
-                    <button
-                        className={cx('clear')}
-                        onClick={handleClear}
+        //Using a wrapper <div> tag around the reference element solves
+        //this by creating a new parentNode context.
+        <div>
+            <TippyHeadless
+                interactive
+                visible={
+                    showResults && searchResult.length > 0
+                }
+                render={(attrs) => (
+                    <div
+                        className={cx('search-result')}
+                        tabIndex="-1"
+                        {...attrs}
                     >
-                        <FontAwesomeIcon
-                            icon={faCircleXmark}
-                        />
-                    </button>
+                        <PopperWrapper>
+                            <h4
+                                className={cx(
+                                    'search-title',
+                                )}
+                            >
+                                Account
+                            </h4>
+                            {searchResult.map((result) => (
+                                <AccountItem
+                                    key={result.id}
+                                    data={result}
+                                />
+                            ))}
+                        </PopperWrapper>
+                    </div>
                 )}
-
-                {loading && (
-                    <FontAwesomeIcon
-                        className={cx('loading')}
-                        icon={faSpinner}
+                onClickOutside={handleOutside} // bấm ra ngoài khu vực search
+            >
+                <div className={cx('search')}>
+                    <input
+                        onFocus={() => {
+                            setShowResults(true);
+                        }} // bật tippy lên
+                        ref={inputRef} // dùng để blur
+                        value={searchValue}
+                        placeholder="Search accounts and videos"
+                        spellCheck={false}
+                        onChange={(e) => handleSearch(e)}
                     />
-                )}
+                    {!!searchValue && !loading && (
+                        <button
+                            className={cx('clear')}
+                            onClick={handleClear}
+                        >
+                            <FontAwesomeIcon
+                                icon={faCircleXmark}
+                            />
+                        </button>
+                    )}
 
-                <button
-                    className={cx('search-btn')}
-                    onMouseDown={(e) => {
-                        e.preventDefault();
-                    }}
-                >
-                    <SearchIcon />
-                </button>
-            </div>
-        </TippyHeadless>
+                    {loading && (
+                        <FontAwesomeIcon
+                            className={cx('loading')}
+                            icon={faSpinner}
+                        />
+                    )}
+
+                    <button
+                        className={cx('search-btn')}
+                        onMouseDown={(e) => {
+                            e.preventDefault();
+                        }}
+                    >
+                        <SearchIcon />
+                    </button>
+                </div>
+            </TippyHeadless>
+        </div>
     );
 }
 export default Search;

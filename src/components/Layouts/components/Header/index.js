@@ -57,6 +57,86 @@ const MENU_ITEMS = [
                         ],
                     },
                 },
+                {
+                    code: 'ph',
+                    title: 'Philipin',
+                },
+                {
+                    code: 'tr',
+                    title: 'Triều Tiên',
+                },
+                {
+                    code: 'ch',
+                    title: 'Trung Quốc',
+                },
+                {
+                    code: 'da',
+                    title: 'Đài Loan',
+                },
+                {
+                    code: 'br',
+                    title: 'Brunei',
+                },
+                {
+                    code: 'ma',
+                    title: 'Malaysia',
+                },
+                {
+                    code: 'in',
+                    title: 'Indonesia',
+                },
+                {
+                    code: 'th',
+                    title: 'Thái Lan',
+                },
+                {
+                    code: 'la',
+                    title: 'Lào',
+                },
+                {
+                    code: 'ca',
+                    title: 'Cambodia',
+                },
+                {
+                    code: 'ph',
+                    title: 'Philipin',
+                },
+                {
+                    code: 'tr',
+                    title: 'Triều Tiên',
+                },
+                {
+                    code: 'ch',
+                    title: 'Trung Quốc',
+                },
+                {
+                    code: 'da',
+                    title: 'Đài Loan',
+                },
+                {
+                    code: 'br',
+                    title: 'Brunei',
+                },
+                {
+                    code: 'ma',
+                    title: 'Malaysia',
+                },
+                {
+                    code: 'in',
+                    title: 'Indonesia',
+                },
+                {
+                    code: 'th',
+                    title: 'Thái Lan',
+                },
+                {
+                    code: 'la',
+                    title: 'Lào',
+                },
+                {
+                    code: 'ca',
+                    title: 'Cambodia',
+                },
             ],
         },
     },
