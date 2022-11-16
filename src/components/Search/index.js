@@ -12,7 +12,7 @@ import AccountItem from '~/components/AccountItem';
 import styles from './Search.module.scss';
 import { SearchIcon } from '../Icons';
 import { useDebounce } from '~/hooks';
-import * as searchService from '~/apiServices/searchServices';
+import * as searchService from 'services/searchService';
 
 const cx = classNames.bind(styles);
 
@@ -26,10 +26,10 @@ function Search() {
     const inputRef = useRef();
 
     useEffect(() => {
+        // khi clear chỉ còn mảng rỗng
         if (!searchValue.trim()) {
-            // khi clear chỉ còn mảng rỗng
-            setSearchResult([]);
             // nếu là chuỗi rỗng sẽ lọt vào đây
+            setSearchResult([]);
             return;
         }
 
@@ -42,6 +42,7 @@ function Search() {
             setLoading(false);
         };
         fetchApi();
+        // eslint-disable-next-line
     }, [debounced]);
 
     // handle
