@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
+import PropTypes from 'prop-types';
 
 const cx = classNames.bind(styles);
 
@@ -30,7 +31,10 @@ function Button({
     if (disabled) {
         // delete props.onClick;
         Object.keys(props).forEach((key) => {
-            if (key.startsWith('on') && typeof props[key] === 'function') {
+            if (
+                key.startsWith('on') &&
+                typeof props[key] === 'function'
+            ) {
                 delete props[key];
             }
         });
@@ -56,11 +60,35 @@ function Button({
     });
     return (
         <Comp className={classes} {...props} {...passProps}>
-            {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
+            {leftIcon && (
+                <span className={cx('icon')}>
+                    {leftIcon}
+                </span>
+            )}
             <span className={cx('title')}>{children}</span>
-            {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
+            {rightIcon && (
+                <span className={cx('icon')}>
+                    {rightIcon}
+                </span>
+            )}
         </Comp>
     );
 }
+Button.propTypes = {
+    to: PropTypes.string,
+    href: PropTypes.string,
+    primary: PropTypes.bool,
+    outline: PropTypes.bool,
+    rounded: PropTypes.bool,
+    text: PropTypes.bool,
+    disabled: PropTypes.bool,
+    large: PropTypes.bool,
+    small: PropTypes.bool,
+    leftIcon: PropTypes.node, // truyền tùy ý
+    rightIcon: PropTypes.node,
+    className: PropTypes.string,
+    children: PropTypes.node.isRequired, // bắt buộc phải có
+    onClick: PropTypes.func,
+};
 
 export default Button;

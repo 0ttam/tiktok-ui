@@ -34,7 +34,7 @@ const MENU_ITEMS = [
         icon: <FontAwesomeIcon icon={faLanguage} />,
         title: 'English',
         children: {
-            title: 'language',
+            title: 'Language',
             data: [
                 {
                     code: 'en',
@@ -44,7 +44,7 @@ const MENU_ITEMS = [
                     code: 'vi',
                     title: 'Việt Nam',
                     children: {
-                        title: 'language',
+                        title: 'Language',
                         data: [
                             {
                                 code: 'en',
