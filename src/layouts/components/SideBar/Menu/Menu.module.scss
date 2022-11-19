@@ -1,0 +1,32 @@
+.menu-item {
+    display: flex; // mỗi item nằm trên hàng mới
+    align-items: center; // căn giữa
+    padding: 8px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: background-color ease-in-out 200ms; // hiệu ứng mượt mà
+    color: var(--text-color);
+    &.active {
+        color: var(--primary);
+        .icon {
+            display: none;
+        }
+        .active-icon {
+            display: flex; // giúp chữ căn giữa với icon
+        }
+    }
+    &:hover {
+        background: rgba(22, 24, 35, .03);
+        
+    }
+    .icon, .active-icon {
+        display: flex; // giúp chữ căn giữa với icon
+    }
+    .active-icon {
+        display: none;
+    }
+}
+.title {
+    margin-left: 8px;
+}

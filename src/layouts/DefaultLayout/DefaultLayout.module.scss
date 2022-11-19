@@ -5,13 +5,14 @@
 }
 .container{
     width: var(--default-layout-width-content, 1150px);
+    max-width: 100%; // trình duyệt co nhỏ lại hiển thị bằng độ rộng trình duyệt
     min-height: 1000px;
-    background-color: #333; 
-    display: flex; // cac components nm ngang
+    display: flex; // cac components nam ngang
+    margin-top: var(--default-layout-header-height);
 }
 .content{
     flex: 1; // chiem het khoang khong con lai
     min-height: 1000px;
     background-color: #cca; 
-    margin-top: var(--default-layout-header-height);
+    
 }
