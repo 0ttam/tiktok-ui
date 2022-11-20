@@ -272,7 +272,7 @@ function Header() {
                                 className={cx(
                                     'user-avatar',
                                 )}
-                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/5057753ddac5a366de416504773394d6~c5_720x720.jpeg?x-expires=1667995200&x-signature=uigqpsvtZNaTibXydCWRcxyUF3A%3D"
+                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/5057753ddac5a366de416504773394d6~c5_720x720.jpeg?x-expires=1669082400&x-signature=7JB72W8BXt6u1g8rCjD7CVdRWfQ%3D"
                                 fallback="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
                                 alt="Nguyen Van A"
                             />
