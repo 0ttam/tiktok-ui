@@ -1,0 +1,47 @@
+.wrapper {
+    padding: 20px;
+    width: 320px;
+}
+.header {
+    margin: 0 0 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.follow {
+    padding: 6px 16px; //nắn nhỏ nút
+}
+.body {
+    margin-top: 12px;
+    color: #161823;
+    
+}
+.nick-name {
+    font-size: 1.2rem;
+    display: flex;
+}
+.check {
+    color: rgb(32, 213, 236);
+    margin-left: 6px;
+}
+.name {
+    font-size: 0.8rem;
+}
+.analytics {
+    font-size: 1.2rem;
+    margin-top: 8px;
+}
+.value {
+    color: #161823;
+    margin: 0 6px 0 0;
+}
+.label {
+    margin: 0 12px 0 0;
+    color: #161823BF;
+}
